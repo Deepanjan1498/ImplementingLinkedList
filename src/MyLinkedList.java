@@ -9,34 +9,40 @@ public class MyLinkedList
 	}
 	public void add(INode newNode) 
 	{
-	    if(this.tail==null)
+    if(this.tail==null)
 		this.tail=newNode;
-	    if(this.head==null)
+    if(this.head==null)
 		this.head=newNode;
-	    else
-    		{
-    		INode temporaryNode=this.head;
-    		this.head=newNode;
-    		this.head.setNext(temporaryNode);
-    		}
+    else
+    	{
+    	INode temporaryNode=this.head;
+    	this.head=newNode;
+    	this.head.setNext(temporaryNode);
+    	}
 	}
 	public void append(INode newNode) 
 	{
-   	if(this.tail==null)
+    if(this.tail==null)
 		this.tail=newNode;
-        if(this.head==null)
+    if(this.head==null)
 		this.head=newNode;
-	    else
-    		{
-    		this.tail.setNext(newNode);
-    		this.tail=newNode;
-    		}
+    else
+    	{
+    	this.tail.setNext(newNode);
+    	this.tail=newNode;
+    	}
 	}
 	public void insert(INode myNode,INode newNode)
 	{
 		INode tempNode=myNode.getNext();
 		myNode.setNext(newNode);
 		newNode.setNext(tempNode);
+	}
+	public INode pop()
+	{
+		INode temporaryNode=this.head;
+		this.head=head.getNext();
+		return temporaryNode;
 	}
 	public void printMyNode()
 	{
