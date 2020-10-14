@@ -131,5 +131,20 @@ public class MyLinkedListTest
     	MyNode<Integer> newNode= (MyNode<Integer>) myLinkedList.searchLinkedListAndInsertNode(30,myFourthNode);
     	Assert.assertEquals(newNode,mySecondNode);
 	}
-	
+	@Test
+	public void givenLinkedListSortedInAscendingOrderShouldPassTestCase() 
+	{
+		MyNode<Integer> myFirstNode=new MyNode<Integer>(56);
+    	MyNode<Integer> mySecondNode=new MyNode<Integer>(30);
+    	MyNode<Integer> myThirdNode=new MyNode<Integer>(40);
+    	MyNode<Integer> myFourthNode=new MyNode<Integer>(70);
+    	MySortedLinkedList myLinkedList=new MySortedLinkedList();
+    	myLinkedList.addSorted(myFirstNode);
+    	myLinkedList.addSorted(mySecondNode);
+    	myLinkedList.addSorted(myThirdNode);
+    	myLinkedList.addSorted(myFourthNode);
+    	myLinkedList.printMyNode();
+    	boolean result = myLinkedList.head.equals(mySecondNode) && myLinkedList.head.getNext().equals(myFirstNode) && myLinkedList.head.getNext().getNext().equals(myFourthNode);
+		Assert.assertEquals(true,result);
+	}
 }
