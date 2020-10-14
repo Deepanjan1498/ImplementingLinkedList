@@ -75,7 +75,19 @@ public class MyLinkedList<K>
 		size++;
 		return temporaryNode;
 	}
-	
+	public INode searchLinkedListAndDeleteNode(K key) {
+		INode tempNode = head;
+		while(tempNode!=null&&tempNode.getNext()!=null) {
+			if(tempNode.getNext().getKey().equals(key)) {
+				break;
+			}
+			else 
+				tempNode = tempNode.getNext();	
+		}
+		tempNode.setNext(tempNode.getNext().getNext());
+		size--;
+		return tempNode;
+	}
 	public INode search(K key)
 	{
 		INode tempNode = head;
