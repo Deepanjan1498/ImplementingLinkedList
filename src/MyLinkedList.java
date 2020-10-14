@@ -2,6 +2,7 @@ public class MyLinkedList<K>
 {
 	public INode head;
 	public INode tail;
+	public int size=0;
 	public MyLinkedList()
 	{
 		this.head=null;
@@ -19,6 +20,7 @@ public class MyLinkedList<K>
     	this.head=newNode;
     	this.head.setNext(temporaryNode);
     	}
+    size++;
 	}
 	public void append(INode newNode) 
 	{
@@ -31,18 +33,22 @@ public class MyLinkedList<K>
     	this.tail.setNext(newNode);
     	this.tail=newNode;
     	}
+    size++;
 	}
 	public void insert(INode myNode,INode newNode)
 	{
 		INode tempNode=myNode.getNext();
 		myNode.setNext(newNode);
 		newNode.setNext(tempNode);
+		size++;
 	}
 	public INode pop()
 	{
 		INode temporaryNode=this.head;
 		this.head=head.getNext();
+		size--;
 		return temporaryNode;
+		
 	}
 	public INode popLast()
 	{
@@ -52,8 +58,24 @@ public class MyLinkedList<K>
 		this.tail=temporaryNode;
 		temporaryNode=temporaryNode.getNext();
 		tail.setNext(null);
+		size--;
 		return temporaryNode;
 	}
+	public INode searchLinkedListAndInsertNode(K key, INode newNode) {
+		INode temporaryNode = head;
+		while (temporaryNode != null && temporaryNode.getNext() != null) {
+			if (temporaryNode.getKey().equals(key)) {
+				break;
+			} else
+				temporaryNode = temporaryNode.getNext();
+		}
+		INode tempNode = temporaryNode.getNext();
+		temporaryNode.setNext(newNode);
+		newNode.setNext(tempNode);
+		size++;
+		return temporaryNode;
+	}
+	
 	public INode search(K key)
 	{
 		INode tempNode = head;
