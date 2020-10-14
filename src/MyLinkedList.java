@@ -1,5 +1,5 @@
-
-public class MyLinkedList {
+public class MyLinkedList 
+{
 	public INode head;
 	public INode tail;
 	public MyLinkedList()
@@ -9,15 +9,27 @@ public class MyLinkedList {
 	}
 	public void add(INode newNode) 
 	{
+	    if(this.tail==null)
+		this.tail=newNode;
+    	    if(this.head==null)
+		this.head=newNode;
+   	 else
+    		{
+    		INode temporaryNode=this.head;
+    		this.head=newNode;
+    		this.head.setNext(temporaryNode);
+	    	}
+	}
+	public void append(INode newNode) 
+	{
     if(this.tail==null)
 		this.tail=newNode;
     if(this.head==null)
 		this.head=newNode;
     else
     	{
-    	INode temporaryNode=this.head;
-    	this.head=newNode;
-    	this.head.setNext(temporaryNode);
+    	this.tail.setNext(newNode);
+    	this.tail=newNode;
     	}
 	}
 	public void printMyNode()
@@ -34,5 +46,4 @@ public class MyLinkedList {
 		myNodes.append(temporaryNode.getKey());
 		System.out.println(myNodes);
 	}
-
 }
