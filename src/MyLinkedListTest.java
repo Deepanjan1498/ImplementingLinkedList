@@ -84,4 +84,18 @@ public class MyLinkedListTest
     					myLinkedList.tail.equals(mySecondNode);
     	Assert.assertTrue(result);
 	}
+	@Test
+	public void givenNodeValueToBeSearchedShouldPassTestCase() 
+	{
+		MyNode<Integer> myFirstNode=new MyNode<Integer>(56);
+    	MyNode<Integer> mySecondNode=new MyNode<Integer>(30);
+    	MyNode<Integer> myThirdNode=new MyNode<Integer>(70);
+    	MyLinkedList myLinkedList=new MyLinkedList();
+    	myLinkedList.add(myFirstNode);
+    	myLinkedList.append(myThirdNode);
+    	myLinkedList.insert(myFirstNode,mySecondNode);
+    	myLinkedList.printMyNode();
+    	MyNode<Integer> search = (MyNode<Integer>) myLinkedList.search(30);
+    	Assert.assertEquals(search,mySecondNode);
+	}
 }
