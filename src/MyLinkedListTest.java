@@ -68,4 +68,20 @@ public class MyLinkedListTest
     					myLinkedList.tail.equals(myThirdNode);
     	Assert.assertTrue(result);
 	}
+	@Test
+	public void lastElementWhenDeletedShouldReturnLinkedList() 
+	{
+		MyNode<Integer> myFirstNode=new MyNode<Integer>(56);
+    	MyNode<Integer> mySecondNode=new MyNode<Integer>(30);
+    	MyNode<Integer> myThirdNode=new MyNode<Integer>(70);
+    	MyLinkedList myLinkedList=new MyLinkedList();
+    	myLinkedList.add(myFirstNode);
+    	myLinkedList.append(myThirdNode);
+    	myLinkedList.insert(myFirstNode,mySecondNode);
+    	myLinkedList.popLast();
+    	myLinkedList.printMyNode();
+    	boolean result=myLinkedList.head.equals(myFirstNode)&&
+    					myLinkedList.tail.equals(mySecondNode);
+    	Assert.assertTrue(result);
+	}
 }
